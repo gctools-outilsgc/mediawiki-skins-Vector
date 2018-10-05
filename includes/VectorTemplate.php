@@ -170,7 +170,7 @@ class VectorTemplate extends BaseTemplate {
 				</style>
 				<div id="app-brand-name"  style="background:#6D4E86; position:absolute; top:2px; clear:both; float:left; font-size:24px; color:white; padding:8px 59px 6px 62px;">Wiki</div>
 				
-				<?php $this->renderNavigation( 'PERSONAL' ); ?>
+				<?php $this->renderNavigation( [ 'PERSONAL' ] ); ?>
 				<div id="left-navigation">
 					<?php $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ); ?>
 				</div>
