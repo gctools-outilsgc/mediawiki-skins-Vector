@@ -34,7 +34,7 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	public function execute() {
 		global $wgScriptPath;
-		
+
 		$this->data['namespace_urls'] = $this->data['content_navigation']['namespaces'];
 		$this->data['view_urls'] = $this->data['content_navigation']['views'];
 		$this->data['action_urls'] = $this->data['content_navigation']['actions'];
@@ -60,9 +60,9 @@ class VectorTemplate extends BaseTemplate {
 		<div class="collab-fip-header" style="height:35px; clear:both; background-color:white;">
 			<object type="image/svg+xml" tabindex="-1" role="img" data="<?php echo $wgScriptPath; ?>/skins/Vector/images/collab/sig-alt-en.svg" aria-label="Symbol of the Government of Canada" style="height:25px; float:left; padding:5px 10px;"></object>
 			<ul id="tool-links" class="" style="list-style:none; padding:5px; width:30%; margin: 0 auto; font-weight:bold;">
-				<li style="float:left; margin: 0px 2%;"><a href="https://account.gccollab.ca" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_wiki_icon.png'; ?>" alt="gccollab"></span><?php global $wgLang; if ($wgLang->getCode() == 'fr') echo  'Compte'; else echo 'Account'; ?></a></li>
-				<li style="float:left; margin: 0px 2%;"><a href="https://gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_collab_icon.png'; ?>" alt="gccollab"></span>Collab</a></li>
-				<li style="float:left; margin: 0px 2%;"><a href="https://message.gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/message_icon.png'; ?>" alt="gccollab"></span>Message</a></li>
+				<li style="float:left; margin: 0px 2%;"><a href="https://account.gccollab.ca" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_wiki_icon.png'; ?>" alt=""></span><?php global $wgLang; if ($wgLang->getCode() == 'fr') echo  'GCcompte'; else echo 'GCaccount'; ?></a></li>
+				<li style="float:left; margin: 0px 2%;"><a href="https://gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_collab_icon.png'; ?>" alt=""></span>GCcollab</a></li>
+				<li style="float:left; margin: 0px 2%;"><a href="https://message.gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/message_icon.png'; ?>" alt=""></span>GCmessage</a></li>
 			</ul>
 		</div>
 		<div id="mw-page-base" class="noprint"></div>
@@ -169,7 +169,7 @@ class VectorTemplate extends BaseTemplate {
 					}
 				</style>
 				<div id="app-brand-name"  style="background:#6D4E86; position:absolute; top:2px; clear:both; float:left; font-size:24px; color:white; padding:8px 59px 6px 62px;">Wiki</div>
-				
+
 				<?php $this->renderNavigation( [ 'PERSONAL' ] ); ?>
 				<div id="left-navigation">
 					<?php $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ); ?>
@@ -179,7 +179,7 @@ class VectorTemplate extends BaseTemplate {
 				</div>
 			</div>
 			<div id="mw-panel" class="collab-wiki-nav" style="top:90px;">
-				
+
 				<div id="p-logo" role="banner" style="margin-bottom:40px;"><a class="mw-wiki-logo" href="<?php
 					echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
 					?>" <?php
@@ -229,7 +229,7 @@ class VectorTemplate extends BaseTemplate {
 			<?php
 			}
 			?>
-			
+
 			<div style="clear:both"></div>
 			<div id="app-brand-footer" style="border-top: 3px solid #6D4E86; bottom:0; width:100%; margin-top:5px;">
 				<object type="image/svg+xml" tabindex="-1" role="img" data="<?php echo $wgScriptPath; ?>/skins/Vector/images/collab/wmms-alt.svg" aria-label="Symbol of the Government of Canada" style="height:33px; float:right; padding:10px 15px;"></object>
@@ -260,7 +260,7 @@ class VectorTemplate extends BaseTemplate {
 		if ( !isset( $portals['ACTIONS'] ) ) {
 				$portals['ACTIONS'] = true;
 		}
-			
+
 		$toolbox = $this->getToolbox();
 		$actions = array();
 
@@ -279,15 +279,15 @@ class VectorTemplate extends BaseTemplate {
 			$pageinfo['info'] = $toolbox['info'];
 			unset($toolbox['info']);
 		}
-		
-		
+
+
 		$tmp = $toolbox['whatlinkshere'];
 		unset($toolbox['whatlinkshere']);
-		
+
 		// now combine...
 		$pageinfo = array_merge($pageinfo, $toolbox);
 		$pageinfo['whatlinkshere'] = $tmp;
-		
+
 
 		// Render portals
 		foreach ( $portals as $name => $content ) {
