@@ -20,10 +20,14 @@ jQuery( function ( $ ) {
 
 	rAF( initialCactionsWidth );
 
-	/**
-	 * Focus search input at the very end
-	 */
-	$( '#searchInput' ).attr( 'tabindex', $( document ).lastTabIndex() + 1 );
+	//add text to favourite button
+	if(mw.config.get( 'wgUserLanguage' ) == "fr"){
+		$('#ca-favorite.icon a').text('Ajouter cette page à vos favoris');
+		$('#ca-unfavorite.icon a').text('Supprimer cette page de vos favoris');
+	} else {
+		$('#ca-favorite.icon a').text('Add this page to your favorites');
+		$('#ca-unfavorite.icon a').text('Remove this page from your favorites');
+	}
 
 	// Bind callback functions to animate our drop down menu in and out
 	// and then call the collapsibleTabs function on the menu

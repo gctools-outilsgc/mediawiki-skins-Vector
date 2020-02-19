@@ -4,10 +4,22 @@
 	left for it.
 */
 
-@media screen and ( max-width: @deviceWidthTablet ) {
+div#mw-head {
+	top: 35px;
+}
+
+#ca-favorite a:focus,
+#ca-unfavorite a:focus,
+#searchInput:focus {
+	outline: -webkit-focus-ring-color auto 1px !important;
+}
+
+@media screen and ( max-width: 768px ) {
 	div#mw-head {
 		position: static !important; /* stylelint-disable-line declaration-no-important */
 		margin-top: 0.5em;
+		top:0;
+		height: 9em;
 	}
 
 	/* Move the panel to the bottom and display it as in-line lists */
@@ -21,8 +33,10 @@
 			font-size: 150%;
 
 			.portal {
-				display: block;
-				width: 100%;
+				display: inline-block;
+				width: 35%;
+				vertical-align: top;
+				margin-top: 0;
 			}
 
 			ul li {
@@ -50,7 +64,7 @@
 	div#p-personal {
 		display: table;
 		position: relative;
-		width: 100%;
+		margin: 0 auto;
 		top: inherit;
 		left: inherit;
 		right: inherit;
@@ -61,40 +75,43 @@
 	}
 	div#right-navigation {
 		position: absolute;
-		top: inherit;
+		max-width: 435px;
 		right: 0;
 		margin-top: 0;
 		float: none;
 	}
 	div#left-navigation {
 		position: absolute;
-		top: inherit;
+
 		margin: 0;
 		display: block;
 		float: none;
 	}
+
 	div#p-namespaces,
 	div#p-views,
 	div#p-variants {
 		position: relative;
-		top: 2.5em;
+		top: 1em;
 	}
+
 	div#p-namespaces {
 		padding-left: 0;
 	}
 	div#p-cactions {
-		top: 2.5em;
+		top: 1em;
 		float: right;
 	}
 	div#p-search {
 		float: none;
 		position: absolute;
 		right: 0;
+		top: 65px;
 		width: 100vw;
 		margin: 0;
 	}
 	div#simpleSearch {
-		margin: 0 3em;
+		margin: 0 auto;
 		width: 80vw;
 		padding: 0;
 	}
@@ -106,5 +123,38 @@
 		/* Hide the 1px blue border on the left side */
 		border-left: 0;
 		margin-left: 0;
+	}
+
+	div.collab-fip-header {
+		display: none;
+	}
+
+	div.vectorTabs,
+	div.vectorTabs ul,
+	div.vectorTabs span,
+	div.vectorTabs li.selected,
+	div.vectorTabs ul li {
+		background-image: none;
+	}
+
+	div.vectorMenu #ca-favorite a,
+	div.vectorMenu #ca-unfavorite a {
+		padding-top: 1.2em;
+	}
+
+	#tool-links {
+		margin: 1em 0;
+	}
+
+	#app-brand-name-mobile {
+		display:block !important;
+	}
+
+	#app-brand-name-mobile a:focus {
+		outline: -webkit-focus-ring-color auto 1px !important;
+	}
+
+	#app-brand-name {
+		display:none;
 	}
 }

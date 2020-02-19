@@ -59,11 +59,6 @@ class VectorTemplate extends BaseTemplate {
 		?>
 		<div class="collab-fip-header" style="height:35px; clear:both; background-color:white;">
 			<object type="image/svg+xml" tabindex="-1" role="img" data="<?php echo $wgScriptPath; ?>/skins/Vector/images/collab/sig-alt-en.svg" aria-label="Symbol of the Government of Canada" style="height:25px; float:left; padding:5px 10px;"></object>
-			<ul id="tool-links" class="" style="list-style:none; padding:5px; width:30%; margin: 0 auto; font-weight:bold;">
-				<li style="float:left; margin: 0px 2%;"><a href="https://account.gccollab.ca" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_wiki_icon.png'; ?>" alt=""></span><?php global $wgLang; if ($wgLang->getCode() == 'fr') echo  'GCcompte'; else echo 'GCaccount'; ?></a></li>
-				<li style="float:left; margin: 0px 2%;"><a href="https://gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_collab_icon.png'; ?>" alt=""></span>GCcollab</a></li>
-				<li style="float:left; margin: 0px 2%;"><a href="https://message.gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/message_icon.png'; ?>" alt=""></span>GCmessage</a></li>
-			</ul>
 		</div>
 		<div id="mw-page-base" class="noprint"></div>
 		<div id="mw-head-base" class="noprint"></div>
@@ -98,6 +93,13 @@ class VectorTemplate extends BaseTemplate {
 
 			$this->html( 'prebodyhtml' );
 			?>
+			<div id="app-brand-name-mobile"  style="background:#6D4E86; position:absolute; top:2px; clear:both; float:left; font-size:24px; color:white; padding:8px 59px 6px 62px; left: 0;">
+				<a class="mw-wiki-logo" href="<?php
+				echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
+				?>">
+					<span style="font-weight:600">GC</span>wiki
+				</a>
+			</div>
 			<div id="bodyContent" class="mw-body-content">
 				<?php
 				if ( $this->data['isarticle'] ) {
@@ -162,13 +164,23 @@ class VectorTemplate extends BaseTemplate {
 		<div id="mw-navigation">
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
 
-			<div id="mw-head" style="top:35px;">
+			<div id="mw-head">
 				<style>
 					#app-brand-name:before{
-						content: ''; display: block; position: absolute; left: 166px; top: 0; width: 0; height: 0; border-top: 20px solid transparent; border-bottom: 22px solid transparent; border-left: 20px solid #6D4E86; clear: both;
+						content: ''; display: block; position: absolute; left: 197px; top: 0; width: 0; height: 0; border-top: 20px solid transparent; border-bottom: 22px solid transparent; border-left: 20px solid #6D4E86; clear: both;
+					}
+					#app-brand-name-mobile:before{
+						content: ''; display: block; position: absolute; left: 197px; top: 0; width: 0; height: 0; border-top: 20px solid transparent; border-bottom: 22px solid transparent; border-left: 20px solid #6D4E86; clear: both;
+					}
+					#app-brand-name-mobile {
+						display:none;
+					}
+					#app-brand-name-mobile a {
+						text-decoration: none;
+						color:white;
 					}
 				</style>
-				<div id="app-brand-name"  style="background:#6D4E86; position:absolute; top:2px; clear:both; float:left; font-size:24px; color:white; padding:8px 59px 6px 62px;"><span style="font-weight:800">GC</span>wiki</div>
+				<div id="app-brand-name"  style="background:#6D4E86; position:absolute; top:2px; clear:both; float:left; font-size:24px; color:white; padding:8px 59px 6px 62px;"><span style="font-weight:600">GC</span>wiki</div>
 
 				<?php $this->renderNavigation( [ 'PERSONAL' ] ); ?>
 				<div id="left-navigation">
@@ -185,10 +197,17 @@ class VectorTemplate extends BaseTemplate {
 					?>" <?php
 					echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) )
 					?>>
-					<img src="<?php global $wgLang; if ($wgLang->getCode() == 'fr') echo $wgScriptPath . '/skins/Vector/images/collab/collab_logo_fr.png'; else echo $wgScriptPath .'/skins/Vector/images/collab/collab_logo_en.png'; ?>" type="image/png" style="width:100%;">
+					<img alt="GCwiki" src="<?php global $wgLang; if ($wgLang->getCode() == 'fr') echo $wgScriptPath . '/skins/Vector/images/collab/collab_logo_fr.png'; else echo $wgScriptPath .'/skins/Vector/images/collab/collab_logo_en.png'; ?>" type="image/png" style="width:100%;">
 				</a>
 				</div>
 				<?php $this->renderPortals( $this->data['sidebar'] ); ?>
+				<nav>
+					<ul id="tool-links" class="" style="list-style:none; padding:5px; margin: 0 auto; font-weight:bold;">
+						<li style="float:left; margin: 3px 2%;"><a href="https://account.gccollab.ca" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_wiki_icon.png'; ?>" alt=""></span><?php global $wgLang; if ($wgLang->getCode() == 'fr') echo  'GCcompte'; else echo 'GCaccount'; ?></a></li>
+						<li style="float:left; margin: 3px 2%;"><a href="https://gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_collab_icon.png'; ?>" alt=""></span>GCcollab</a></li>
+						<li style="float:left; margin: 3px 2%;"><a href="https://message.gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/message_icon.png'; ?>" alt=""></span>GCmessage</a></li>
+					</ul>
+				</nav>
 			</div>
 		</div>
 		<?php Hooks::run( 'VectorBeforeFooter' ); ?>
