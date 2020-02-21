@@ -102,7 +102,7 @@
 	"config": {
 		"VectorUseSimpleSearch": true,
 		"VectorUseIconWatch": true,
-		"VectorResponsive": false,
+		"VectorResponsive": true,
 		"VectorPrintLogo": false
 	},
 	"manifest_version": 1
