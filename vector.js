@@ -29,6 +29,21 @@ jQuery( function ( $ ) {
 		$('#ca-unfavorite.icon a').text('Remove this page from your favorites');
 	}
 
+	//bilingual help link
+	var UIlang = mw.config.get( 'wgUserLanguage' );
+	switch(UIlang){
+		case 'en_ca':
+		case 'en':
+			$('#n-help a').attr('href', $('#n-help a').attr('href')+'/en/support/home');
+			break;
+		case 'fr_ca':
+		case 'fr':
+			$('#n-help a').attr('href', $('#n-help a').attr('href')+'/fr/support/home');
+			break;
+		default:
+			break;
+	}
+
 	// Bind callback functions to animate our drop down menu in and out
 	// and then call the collapsibleTabs function on the menu
 	$tabContainer
