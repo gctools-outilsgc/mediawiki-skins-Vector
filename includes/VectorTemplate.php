@@ -203,7 +203,7 @@ class VectorTemplate extends BaseTemplate {
 				<?php $this->renderPortals( $this->data['sidebar'] ); ?>
 				<nav>
 					<ul id="tool-links" class="" style="list-style:none; padding:5px; margin: 0 auto; font-weight:bold;">
-						<li style="float:left; margin: 3px 2%;"><a href="https://account.gccollab.ca" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_wiki_icon.png'; ?>" alt=""></span><?php global $wgLang; if ($wgLang->getCode() == 'fr') echo  'GCcompte'; else echo 'GCaccount'; ?></a></li>
+						<li style="float:left; margin: 3px 2%;"><a href="https://account-compte.gccollab.ca" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_wiki_icon.png'; ?>" alt=""></span><?php global $wgLang; if ($wgLang->getCode() == 'fr') echo  'GCcompte'; else echo 'GCaccount'; ?></a></li>
 						<li style="float:left; margin: 3px 2%;"><a href="https://gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/mini_collab_icon.png'; ?>" alt=""></span>GCcollab</a></li>
 						<li style="float:left; margin: 3px 2%;"><a href="https://message.gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="<?php echo $wgScriptPath . '/skins/Vector/images/collab/message_icon.png'; ?>" alt=""></span>GCmessage</a></li>
 					</ul>
