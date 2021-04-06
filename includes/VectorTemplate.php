@@ -167,6 +167,8 @@ class VectorTemplate extends BaseTemplate {
 			'data-sidebar' => $this->buildSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
 			'msg-vector-action-toggle-sidebar' => $skin->msg( 'vector-action-toggle-sidebar' )->text(),
+
+			'msg-baraccount' => $skin->msg( 'wet:baraccount' )->text(),
 		] + $this->getMenuProps();
 
 		// The following logic is unqiue to Vector (not used by legacy Vector) and

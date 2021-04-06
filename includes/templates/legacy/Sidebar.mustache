@@ -1,15 +1,27 @@
 {{!
 	See @typedef SidebarData
 	string html-logo-attributes for site logo. Must be used inside tag e.g. `class="logo" lang="en-gb"`
+	string msg-baraccount
 }}
 
-<div id="mw-panel">
+<div id="mw-panel" class="collab-wiki-nav" style="top:90px;">
+	<div id="p-logo" role="banner" style="margin-bottom:40px;">
 	{{#has-logo}}
 	<div id="p-logo" role="banner">
 		<a {{{html-logo-attributes}}}></a>
 	</div>
 	{{/has-logo}}
+	</div>
 	{{#data-portals-first}}{{>Menu}}{{/data-portals-first}}
 	{{#array-portals-rest}}{{>Menu}}{{/array-portals-rest}}
 	{{#data-portals-languages}}{{>Menu}}{{/data-portals-languages}}
+
+	<nav>
+		<ul id="tool-links" class="" style="list-style:none; padding:5px; margin: 0 auto; font-weight:bold;">
+			<li style="float:left; margin: 3px 2%;"><a href="https://account-compte.gccollab.ca" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="/skins/Vector/resources/skins.vector.styles/images/collab/mini_wiki_icon.png" alt=""></span>{{msg-baraccount}}</a></li>
+			<li style="float:left; margin: 3px 2%;"><a href="https://gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="/skins/Vector/resources/skins.vector.styles/images/collab/mini_collab_icon.png" alt=""></span>GCcollab</a></li>
+			<li style="float:left; margin: 3px 2%;"><a href="https://message.gccollab.ca/" style="color:#6b5088;"><span><img style="width:25px; display:inline-block; margin-right:3px;" src="/skins/Vector/resources/skins.vector.styles/images/collab/message_icon.png" alt=""></span>GCmessage</a></li>
+
+		</ul>
+	</nav>
 </div>
