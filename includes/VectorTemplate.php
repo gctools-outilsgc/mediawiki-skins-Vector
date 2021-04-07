@@ -167,6 +167,9 @@ class VectorTemplate extends BaseTemplate {
 			'data-sidebar' => $this->buildSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
 			'msg-vector-action-toggle-sidebar' => $skin->msg( 'vector-action-toggle-sidebar' )->text(),
+
+			'msg-logofile' => $skin->msg( 'wet:logofile' )->text(),
+			'msg-baraccount' => $skin->msg( 'wet:baraccount' )->text(),
 		] + $this->getMenuProps();
 
 		// The following logic is unqiue to Vector (not used by legacy Vector) and
@@ -291,6 +294,38 @@ class VectorTemplate extends BaseTemplate {
 		$portals = $skin->buildSidebar();
 		$props = [];
 		$languages = null;
+		
+		// split off some items from the toolbox
+		if ( !isset( $portals['ACTIONS'] ) ) {
+				$portals['ACTIONS'] = true;
+		}
+
+		$toolbox = $this->getToolbox();
+		$actions = array();
+
+		// next - stuff from the toolbox
+		foreach ( array( 'upload', 'specialpages' ) as $action ) {
+			if( isset($toolbox[$action]) ){
+				$actions[$action] = $toolbox[$action];
+				unset($toolbox[$action]);
+			}
+		}
+
+		// move some toolbox items to the top
+		$pageinfo = array();
+
+		if ( isset( $toolbox['info'] ) ){
+			$pageinfo['info'] = $toolbox['info'];
+			unset($toolbox['info']);
+		}
+
+
+		$tmp = $toolbox['whatlinkshere'];
+		unset($toolbox['whatlinkshere']);
+
+		// now combine...
+		$pageinfo = array_merge($pageinfo, $toolbox);
+		$pageinfo['whatlinkshere'] = $tmp;
 
 		// Render portals
 		foreach ( $portals as $name => $content ) {
@@ -302,11 +337,17 @@ class VectorTemplate extends BaseTemplate {
 			$name = (string)$name;
 
 			switch ( $name ) {
+				case 'ACTIONS':			// split off from tools
+					$portal = $this->getMenuData(
+						'tba', $actions, self::MENU_TYPE_PORTAL
+					);
+					$props[] = $portal;
+					break;
 				case 'SEARCH':
 					break;
 				case 'TOOLBOX':
 					$portal = $this->getMenuData(
-						'tb', $content, self::MENU_TYPE_PORTAL
+						'tb', $toolbox, self::MENU_TYPE_PORTAL
 					);
 					// Run deprecated hook.
 					// Use SidebarBeforeOutput instead.

@@ -137,7 +137,7 @@
 			"value": true
 		},
 		"VectorResponsive": {
-			"value": false
+			"value": true
 		},
 		"VectorShowSkinPreferences": {
 			"value": true,
