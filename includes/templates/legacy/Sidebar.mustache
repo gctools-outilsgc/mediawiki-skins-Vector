@@ -2,14 +2,15 @@
 	See @typedef SidebarData
 	string html-logo-attributes for site logo. Must be used inside tag e.g. `class="logo" lang="en-gb"`
 	string msg-baraccount
+	string msg-logofile
 }}
 
 <div id="mw-panel" class="collab-wiki-nav" style="top:90px;">
 	<div id="p-logo" role="banner" style="margin-bottom:40px;">
 	{{#has-logo}}
-	<div id="p-logo" role="banner">
-		<a {{{html-logo-attributes}}}></a>
-	</div>
+		<a {{{html-logo-attributes}}}>
+		<img alt="GCwiki" src="/skins/Vector/resources/skins.vector.styles/images/collab/{{msg-logofile}}" type="image/png" style="width:100%;">
+		</a>
 	{{/has-logo}}
 	</div>
 	{{#data-portals-first}}{{>Menu}}{{/data-portals-first}}

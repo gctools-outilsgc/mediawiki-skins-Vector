@@ -168,6 +168,7 @@ class VectorTemplate extends BaseTemplate {
 			'sidebar-visible' => $this->isSidebarVisible(),
 			'msg-vector-action-toggle-sidebar' => $skin->msg( 'vector-action-toggle-sidebar' )->text(),
 
+			'msg-logofile' => $skin->msg( 'wet:logofile' )->text(),
 			'msg-baraccount' => $skin->msg( 'wet:baraccount' )->text(),
 		] + $this->getMenuProps();
 
